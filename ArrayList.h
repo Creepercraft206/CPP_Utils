@@ -14,4 +14,5 @@ public:
     bool contains(T value);
     bool isEmpty();
     void replace(T oldValue, T newValue);
+    T toArray();
 };

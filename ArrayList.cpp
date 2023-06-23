@@ -118,3 +118,14 @@ void ArrayList<T>::replace(T oldValue, T newValue) {
         }
     }
 }
+
+/**
+ * <h2>ArrayList | toArray </h2>
+ * Returns ArrayList as normal Array
+ *
+ * @return ArrayList as normal Array
+ */
+template<typename T>
+T ArrayList<T>::toArray() {
+    return list;
+}
