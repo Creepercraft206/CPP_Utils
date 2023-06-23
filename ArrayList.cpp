@@ -41,6 +41,11 @@ void ArrayList<T>::remove(T value) {
     }
 }
 
+/**
+ * <h2>ArrayList | Size </h2>
+ *
+ * @return size of ArrayList
+ */
 template<typename T>
 int ArrayList<T>::size() {
     int count;
@@ -52,6 +57,11 @@ int ArrayList<T>::size() {
     return count;
 }
 
+/**
+ * <h2>ArrayList | Clear </h2>
+ * Clears all content of ArrayList
+ *
+ */
 template<typename T>
 void ArrayList<T>::clear() {
     for (int i = 0; i < 200; i++) {
@@ -59,6 +69,13 @@ void ArrayList<T>::clear() {
     }
 }
 
+/**
+ * <h2>ArrayList | Contains </h2>
+ * Checks if given value is contained in ArrayList
+ *
+ * @param value to check if contained in the ArrayList
+ * @return true if contained in list
+ */
 template<typename T>
 bool ArrayList<T>::contains(T value) {
     for (int i = 0; i < 200; i++) {
@@ -69,6 +86,12 @@ bool ArrayList<T>::contains(T value) {
     return false;
 }
 
+/**
+ * <h2>ArrayList | isEmpty </h2>
+ * Checks if ArrayList doesnt contain any Element
+ *
+ * @return true if ArrayList is empty
+ */
 template<typename T>
 bool ArrayList<T>::isEmpty() {
     for (int i = 0; i < 200; i++) {
@@ -79,6 +102,13 @@ bool ArrayList<T>::isEmpty() {
     return true;
 }
 
+/**
+ * <h2>ArrayList | Replace </h2>
+ * Replaces value with a new one
+ *
+ * @param oldValue old Value to search for
+ * @param newValue new Value to override old one
+ */
 template<typename T>
 void ArrayList<T>::replace(T oldValue, T newValue) {
     for (int i = 0; i < 200; i++) {
