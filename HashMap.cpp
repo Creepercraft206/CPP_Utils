@@ -7,7 +7,10 @@
  */
 template<typename Key, typename Value>
 HashMap<Key, Value>::HashMap() {
-    
+    for (int i = 0; i < 199; i++) {
+        keylist[i] = 0;
+        valuelist[i] = 0;
+    }
 }
 
 /**
@@ -19,8 +22,8 @@ HashMap<Key, Value>::HashMap() {
  */
 template<typename Key, typename Value>
 void HashMap<Key, Value>::put(Key key, Value value) {
-    for (int i = 0; i < 200; i++) {
-        if (keylist[i] == nullptr) {
+    for (int i = 0; i < 199; i++) {
+        if (keylist[i] == 0) {
             keylist[i] = key;
             valuelist[i] = value;
         }
@@ -33,16 +36,16 @@ void HashMap<Key, Value>::put(Key key, Value value) {
  *
  * @param key Key to search for
  * 
- * @return Value connected to given Key. Returns nullptr if not found.
+ * @return Value connected to given Key. Returns 0 if not found.
  */
 template<typename Key, typename Value>
 Value HashMap<Key, Value>::getValue(Key key) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (keylist[i] == key) {
             return valuelist[i];
         }
     }
-    return nullptr;
+    return Value();
 }
 
 /**
@@ -51,16 +54,16 @@ Value HashMap<Key, Value>::getValue(Key key) {
  *
  * @param value Value to search for
  * 
- * @return Key connected to given Value. Returns nullptr if not found.
+ * @return Key connected to given Value. Returns 0 if not found.
  */
 template<typename Key, typename Value>
 Key HashMap<Key, Value>::getKey(Value value) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (valuelist[i] == value) {
             return keylist[i];
         }
     }
-    return nullptr;
+    return Key();
 }
 
 /**
@@ -72,10 +75,10 @@ Key HashMap<Key, Value>::getKey(Value value) {
  */
 template<typename Key, typename Value>
 void HashMap<Key, Value>::remove(Key key) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (keylist[i] == key) {
-            keylist[i] = nullptr;
-            valuelist[i] = nullptr;
+            keylist[i] = 0;
+            valuelist[i] = 0;
         }
     }
 }
@@ -89,8 +92,8 @@ void HashMap<Key, Value>::remove(Key key) {
 template<typename Key, typename Value>
 int HashMap<Key, Value>::size() {
     int count = 0;
-    for (int i = 0; i < 200; i++) {
-        if (keylist[i] != nullptr) {
+    for (int i = 0; i < 199; i++) {
+        if (keylist[i] != 0) {
             count++;
         }
     }
@@ -107,10 +110,10 @@ int HashMap<Key, Value>::size() {
  */
 template<typename Key, typename Value>
 void HashMap<Key, Value>::replace(Key key, Value newValue) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (keylist[i] == key) {
-            keylist[i] = nullptr;
-            valuelist[i] = nullptr;
+            keylist[i] = 0;
+            valuelist[i] = 0;
         }
     }
 }
@@ -122,7 +125,7 @@ void HashMap<Key, Value>::replace(Key key, Value newValue) {
  * @return Array of all Values
  */
 template<typename Key, typename Value>
-Value HashMap<Key, Value>::valueMapToArray() {
+Value* HashMap<Key, Value>::valueMapToArray() {
     return valuelist;
 }
 
@@ -133,6 +136,6 @@ Value HashMap<Key, Value>::valueMapToArray() {
  * @return Array of all Keys
  */
 template<typename Key, typename Value>
-Key HashMap<Key, Value>::keyMapToArray() {
+Key* HashMap<Key, Value>::keyMapToArray() {
     return keylist;
 }

@@ -7,7 +7,9 @@
  */
 template<typename T>
 ArrayList<T>::ArrayList() {
-
+    for (int i = 0; i < 199; i++) {
+        list[i] = 0;
+    }
 }
 
 /**
@@ -18,12 +20,12 @@ ArrayList<T>::ArrayList() {
  */
 template<typename T>
 void ArrayList<T>::add(T value) {
-    for (int i = 0; i < 200; i++) {
-        if (list[i] == nullptr) {
+    for (int i = 0; i < 199; i++) {
+        if (list[i] == 0) {
             list[i] = value;
             return;
         }
-    }   
+    }
 }
 
 /**
@@ -34,9 +36,9 @@ void ArrayList<T>::add(T value) {
  */
 template<typename T>
 void ArrayList<T>::remove(T value) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (list[i] == value) {
-            list[i] = nullptr;
+            list[i] = 0;
         }
     }
 }
@@ -49,8 +51,8 @@ void ArrayList<T>::remove(T value) {
 template<typename T>
 int ArrayList<T>::size() {
     int count;
-    for (int i = 0; i < 200; i++) {
-        if (list[i] != nullptr) {
+    for (int i = 0; i < 199; i++) {
+        if (list[i] != 0) {
             count++;
         }
     }
@@ -64,8 +66,8 @@ int ArrayList<T>::size() {
  */
 template<typename T>
 void ArrayList<T>::clear() {
-    for (int i = 0; i < 200; i++) {
-        list[i] = nullptr;
+    for (int i = 0; i < 199; i++) {
+        list[i] = 0;
     }
 }
 
@@ -78,7 +80,7 @@ void ArrayList<T>::clear() {
  */
 template<typename T>
 bool ArrayList<T>::contains(T value) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (list[i] == value) {
             return true;
         }
@@ -94,8 +96,8 @@ bool ArrayList<T>::contains(T value) {
  */
 template<typename T>
 bool ArrayList<T>::isEmpty() {
-    for (int i = 0; i < 200; i++) {
-        if (list[i] != nullptr) {
+    for (int i = 0; i < 199; i++) {
+        if (list[i] != 0) {
             return false;
         }
     }
@@ -111,7 +113,7 @@ bool ArrayList<T>::isEmpty() {
  */
 template<typename T>
 void ArrayList<T>::replace(T oldValue, T newValue) {
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 199; i++) {
         if (list[i] == oldValue) {
             list[i] = newValue;
             return;
@@ -126,6 +128,6 @@ void ArrayList<T>::replace(T oldValue, T newValue) {
  * @return ArrayList as normal Array
  */
 template<typename T>
-T ArrayList<T>::toArray() {
+T* ArrayList<T>::toArray() {
     return list;
 }
